@@ -9,19 +9,18 @@ io.on('connection', (socket) => {
   socket.on('disconnect', (msg) => {
     console.log(socket.id+' is disconnected!');
   });
-  socket.on('chat message', (msg) => {
+  socket.on('chat message', (msg) => {console.log(msg);
     if(rooms[msg.userId]){
-      console.log(msg.sentTo);
-      io.to(rooms[msg.userId]).emit('chat message',{
-        message:'Recu!',
-        sentAt:new Date().getTime()});
+      io.to(rooms[msg.sendTo]).emit('chat message',{
+        message:msg.userId
+      });
     }else{
       rooms[msg.userId] = socket.id;
-      console.log(msg.sentTo);
-      io.to(rooms[msg.userId]).emit('chat message',{
-        message:'Recu!',
-        sentAt:new Date().getTime()});
+      io.to(rooms[msg.sendTo]).emit('chat message',{
+        message:msg.userId
+      });
     }
+    console.log(rooms);
   });
 });
 http.listen(3000, () => {

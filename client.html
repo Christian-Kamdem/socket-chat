@@ -15,7 +15,6 @@
   </head>
   <body>
     <ul id="chat"></ul>
-    <span>Send to</span><input id="sendTo" autocomplete="off" /></br>
     <form action="">
       <input id="message" autocomplete="off" /><button id="sendMessage">Send</button>
     </form>
@@ -23,9 +22,9 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     let dataFlow = {
-      userId:Math.floor(Math.random() * 10),
+      userId:'clientB',
       message:'',
-      sendTo:''
+      sentTo:'clientA'
     };
     const socket = io();
     const sendMessage = document.getElementById('sendMessage');
@@ -35,7 +34,6 @@
     sendMessage.addEventListener('click',(e)=>{
       e.preventDefault(); // prevents page reloading
       dataFlow.message = message.value;
-      dataFlow.sendTo = document.getElementById('sendTo').value;
       socket.emit('chat message', dataFlow);
       sendMessage.value = '';
     });
