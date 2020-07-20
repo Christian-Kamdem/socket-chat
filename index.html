@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Socket chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -14,21 +14,33 @@
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
+    <ul id="chat"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <input id="message" autocomplete="off" /><button id="sendMessage">Send</button>
     </form>
   </body>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script>
-    $(function () {
-      var socket = io();
-      $('form').submit(function(e) {
-        e.preventDefault(); // prevents page reloading
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
+    let dataFlow = {
+      userId:'clientA',
+      message:'',
+      sentTo:'clientB'
+    };
+    const socket = io();
+    const sendMessage = document.getElementById('sendMessage');
+    const message = document.getElementById('message');
+    const chat = document.getElementById('chat');
+    socket.emit('chat message', dataFlow);
+    sendMessage.addEventListener('click',(e)=>{
+      e.preventDefault(); // prevents page reloading
+      dataFlow.message = message.value;
+      socket.emit('chat message', dataFlow);
+      sendMessage.value = '';
+    });
+    socket.on('chat message', function(msg){console.log(msg);
+      let domUpdate = `<li>${msg}</li>`;
+      requestAnimationFrame(()=>{
+        chat.insertAdjacentHTML('beforeend',domUpdate);
       });
     });
   </script>
