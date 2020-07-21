@@ -12,12 +12,14 @@ io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {console.log(msg);
     if(rooms[msg.userId]){
       io.to(rooms[msg.sendTo]).emit('chat message',{
-        message:msg.userId
+        message:msg.message,
+        from:msg.userId
       });
     }else{
       rooms[msg.userId] = socket.id;
       io.to(rooms[msg.sendTo]).emit('chat message',{
-        message:msg.userId
+        message:msg.message,
+        from:msg.userId
       });
     }
     console.log(rooms);

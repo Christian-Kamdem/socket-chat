@@ -14,8 +14,8 @@
     </style>
   </head>
   <body>
-    <ul id="chat"></ul>
     <span>Send to</span><input id="sendTo" autocomplete="off" /></br>
+    <div id="chat"></div>
     <form action="">
       <input id="message" autocomplete="off" /><button id="sendMessage">Send</button>
     </form>
@@ -39,8 +39,8 @@
       socket.emit('chat message', dataFlow);
       sendMessage.value = '';
     });
-    socket.on('chat message', function(msg){console.log(msg);
-      let domUpdate = `<li>${msg}</li>`;
+    socket.on('chat message', function(msg){
+      let domUpdate = `<p>From :${msg.from}</p><p>Message :${msg.message}</p>`;
       requestAnimationFrame(()=>{
         chat.insertAdjacentHTML('beforeend',domUpdate);
       });
