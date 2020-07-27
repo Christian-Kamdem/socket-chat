@@ -4,11 +4,12 @@ function load_message($data){
 	$bd = bd();	
 	$messages = array();
 		$data->user_from = strip_tags($data->user_from);
+		$data->user_to = strip_tags($data->user_to);
 		 try{
 			$request = $bd->prepare('SELECT *
 									  FROM conversations 
-									  WHERE user_from = ?');
-	        $request->execute([$data->user_from]);
+									  WHERE user_from = ? AND user_to = ?');
+	        $request->execute([$data->user_from,$data->user_to]);
 			}catch(Exception $e){
 				return json_encode(array('message' => 'Database connection error!','error'=>true));
 			}	
