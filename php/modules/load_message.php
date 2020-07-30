@@ -2,7 +2,7 @@
 function load_message($data){
 	include 'helpers/bd.php';
 	$bd = bd();	
-	$messages = array();
+	$box = array();
 		$data->user_from = strip_tags($data->user_from);
 		$data->user_to = strip_tags($data->user_to);
 		 try{
@@ -18,14 +18,16 @@ function load_message($data){
 				return json_encode(array('message' => 'Not found','error'=>true));
 			}else{
 				while($infos = $request->fetch()){
+					$messages = array();
 					$messages['id'] = $infos['id'];
 					$messages['user_from'] = $infos['user_from'];
 					$messages['user_to'] = $infos['user_to'];
 					$messages['sent_at'] = $infos['sent_at'];
 					$messages['statut'] = $infos['statut'];
 					$messages['message'] = $infos['message'];
+					array_push($box,$messages);
 				}
-				return json_encode(array('message' => $messages,'error'=>false));
+				return json_encode(array('message' => $box,'error'=>false));
 			}		
 	}
 ?>
