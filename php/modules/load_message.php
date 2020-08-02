@@ -8,8 +8,8 @@ function load_message($data){
 		 try{
 			$request = $bd->prepare('SELECT *
 									  FROM conversations 
-									  WHERE user_from = ? AND user_to = ?');
-	        $request->execute([$data->user_from,$data->user_to]);
+									  WHERE user_from = ? AND user_to = ? OR user_to = ? AND user_from = ?');
+	        $request->execute([$data->user_from,$data->user_to,$data->user_from,$data->user_to]);
 			}catch(Exception $e){
 				return json_encode(array('message' => 'Database connection error!','error'=>true));
 			}	
