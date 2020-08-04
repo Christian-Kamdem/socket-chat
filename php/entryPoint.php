@@ -8,7 +8,7 @@ if(1/*domainOrigin() === true*/){
 	$dataReceive = json_decode(file_get_contents('php://input'));
 	$data = $dataReceive->data;
 	$requestName = strip_tags($dataReceive->requestName);
-	$allowedModules = ['save_message','change_statut_message','load_message'];
+	$allowedModules = ['save_message','change_statut_message','load_message','load_discussion_list'];
 	//Switching following the type of the request
 	if(in_array($requestName,$allowedModules,true) === true){
 		include "modules/{$requestName}.php";

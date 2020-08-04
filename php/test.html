@@ -1,0 +1,589 @@
+<html>
+<body>
+  <input type="text" placeholder="name" id="name"/>
+  <input type="text" placeholder="prix" id="prix"/>
+  <input type="text" placeholder="description" id="description"/>
+  <input type="file" id="file" accept="image/*"/>
+  <button id="send">Send</button>
+	<script>
+
+
+  /*var formDataToSend = new Object({});
+  var send = document.getElementById("send");
+  send.addEventListener("click",()=>{
+    var dishName = document.getElementById("name").value;
+    var dishPrice = document.getElementById("prix").value;
+    var dishDescription = document.getElementById("description").value;
+    var file = document.getElementById("file");
+    UploadFiles(file.files[0]);
+
+ function UploadFiles(files){
+    let reader = new FileReader();
+    var result = "";
+      reader.addEventListener("load", function(){
+          formDataToSend.data.image = this.result;
+      },false);
+      reader.readAsDataURL(files);
+      return result;      
+    }
+
+    formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dishName:dishName,
+                dishPrice:dishPrice,
+                dishDescription:dishDescription,
+                dishCategoryId:23,
+                id_members:24,
+                email:"email3"
+              }
+            };console.log(formDataToSend);
+            const urlToSend = "API/entryPoint.php";
+              let xhrSendAnnonce = new XMLHttpRequest();              
+                  xhrSendAnnonce.addEventListener("load", () =>
+                   {
+                        let response = JSON.parse(xhrSendAnnonce.responseText);
+                        console.log(response);
+                   });
+             xhrSendAnnonce.responseType = "text";
+             xhrSendAnnonce.open('POST',urlToSend, true);
+            xhrSendAnnonce.send(JSON.stringify(formDataToSend));
+  },false);*/
+  /*let n = 70;
+var resultTable = [];
+var cpt = 0;
+myFonction(n);
+function myFonction(n){
+ if(n>=10){
+   let aux = cpt;
+   cpt +=10;
+   n -= 10;
+   resultTable.push(cpt)
+   return myFonction(n);
+  }
+}
+
+console.log(resultTable);
+	*/
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("isTokenValid2"))),
+              data:{
+                tokenAge:1533405885,
+                email:"email3"
+              }
+            };*/
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("authentification"))),
+              data:{
+                password:"password",
+                email:"email@gmail.com"
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dishName:"dishName",
+                dishPrice:"16.2",
+                dishDescription:"dishDescription",
+                dishCategoryId:3,
+                dishSubCategoryId:5,
+                idRestaurant:4,
+                image:"base64"
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("searchMenu"))),
+data : {id_restaurant:4}
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("pay_via_stripe"))),
+              data:{
+                id:4
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("validateAccount"))),
+              data:{
+                email:"email3@gmail.com"
+              }
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("membersPendingValidation"))),
+              data:{
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("deleteAccount"))),
+              data:{
+                email:"email4x",
+                id:5
+              }
+              };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("searchRestaurant"))),
+              data:{
+                search_type:"none",
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("isPostcodeExist"))),
+              data:{
+                postcode:123
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("addCategory"))),
+              data:{
+                categoryName:"category7",
+                id_member:10
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("getCategories"))),
+              data:{
+              }
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("deleteDish"))),
+              data:{
+                id_dish:3,
+                id_restaurant:6
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("vote"))),
+              data:{
+                id_member:10,
+                stars:5,
+                id_dish:2
+              }
+            };*/
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("registration"))),
+              data:{
+                account_type:"customer",
+                first_name:"firstName2",
+                postcode:"1234",
+                last_name:"lastName2",
+                restaurant_name:"restaurant_name",
+                address_line1:"address_line1",
+                address_line2:"address_line2",
+                city:"city",
+                image:"city",
+                email:"email12",
+                password:"password",
+                phone_number:"237698075801",
+                restaurant_phone_number:"237698075801"
+              }
+            };*/
+    /*const photo = document.getElementById("change");
+    photo.addEventListener("change",()=>{
+      formDataToSend.data.photo = UploadFiles();
+    },false);
+
+    function UploadFiles(files){
+      let elt = ""; 
+      let reader = new FileReader();
+        reader.addEventListener("load", function(){
+            cover.src = this.result;
+        },false);
+        reader.readAsDataURL(files);      
+    }*/
+/*var formDataToSend = {
+              requestName:btoa(btoa(btoa("changeRestaurantAvailability"))),
+              data:{
+                email:"email3",
+                restaurant_is_available:"itsWorks",
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dish_name:"cookie",
+                dish_price:"500f",
+                dish_description:"with chocolate",
+                dish_category_id:3,
+                dish_sub_category_id:2,
+                dish_sub_sub_category_id:2,
+                dish_sub_sub_sub_category_id:2,
+                id_restaurant: 4,
+                image:"base64"
+              }
+              };*/
+              /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("validateAccount"))),
+              data:{
+                email:"email5",
+                elementName:"phone_number",
+                elementValue:"674811274"
+              }
+              };*/
+              /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("sendMail"))),
+              data:{
+                from:"christiankamdem2@gmail.com",
+                to:"christiankamdem2@gmail.com",
+                subject:"subject - 674811274",
+                message:"674811274"
+              }
+              };*/
+          /*let formDataToSend = {
+            requestName:'registration',
+            data:{
+              language:'xyz',
+              idAccountType:1,
+              matricule:'xyz12',
+              tel:'',
+              name:'xyz',
+              surname:'xyz',
+              email:'xyz12',
+              country:'xyz',
+              region:'xyz',
+              commune:'xyz',
+              matrimonialStatut:'xyz',
+              genre:'M',
+              dob:0,
+              date:'',
+       
+            '1':[4,2,"OX1 47D",2,4,15124545212,"ASAP"],
+            '2':[3,3,"OX1 47D",2,4,15124545212,"ASAP"]
+          }
+          };*/
+          /*var formDataToSend = {
+          requestName:btoa(btoa(btoa("getOrder"))),
+          data:{
+            id_restaurant:4
+          }
+          };*/
+          /*var formDataToSend = {
+          requestName:btoa(btoa(btoa("validateOrder"))),
+          data:{
+            basket_code:'151245452122'
+          }
+          };*/
+          /*window.addEventListener("onwheel" in document ? "wheel" : "mousewheel", function(e) {
+  e.wheel = e.deltaY ? -e.deltaY : e.wheelDelta/40;alert("dfq");
+  // custom code
+});*/
+//api/entryPoint.php
+
+  /*var formDataToSend = new Object({});
+  var send = document.getElementById("send");
+  send.addEventListener("click",()=>{
+    var dishName = document.getElementById("name").value;
+    var dishPrice = document.getElementById("prix").value;
+    var dishDescription = document.getElementById("description").value;
+    var file = document.getElementById("file");
+    UploadFiles(file.files[0]);
+
+ function UploadFiles(files){
+    let reader = new FileReader();
+    var result = "";
+      reader.addEventListener("load", function(){
+          formDataToSend.data.image = this.result;
+      },false);
+      reader.readAsDataURL(files);
+      return result;      
+    }
+
+    formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dishName:dishName,
+                dishPrice:dishPrice,
+                dishDescription:dishDescription,
+                dishCategoryId:23,
+                id_members:24,
+                email:"email3"
+              }
+            };console.log(formDataToSend);
+            const urlToSend = "API/entryPoint.php";
+              let xhrSendAnnonce = new XMLHttpRequest();              
+                  xhrSendAnnonce.addEventListener("load", () =>
+                   {
+                        let response = JSON.parse(xhrSendAnnonce.responseText);
+                        console.log(response);
+                   });
+             xhrSendAnnonce.responseType = "text";
+             xhrSendAnnonce.open('POST',urlToSend, true);
+            xhrSendAnnonce.send(JSON.stringify(formDataToSend));
+  },false);*/
+  /*let n = 70;
+var resultTable = [];
+var cpt = 0;
+myFonction(n);
+function myFonction(n){
+ if(n>=10){
+   let aux = cpt;
+   cpt +=10;
+   n -= 10;
+   resultTable.push(cpt)
+   return myFonction(n);
+  }
+}
+
+console.log(resultTable);
+  */
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("isTokenValid2"))),
+              data:{
+                tokenAge:1533405885,
+                email:"email3"
+              }
+            };*/
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("authentification"))),
+              data:{
+                password:"password",
+                email:"email@gmail.com"
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dishName:"dishName",
+                dishPrice:"16.2",
+                dishDescription:"dishDescription",
+                dishCategoryId:3,
+                dishSubCategoryId:5,
+                idRestaurant:4,
+                image:"base64"
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("searchMenu"))),
+data : {id_restaurant:4}
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("pay_via_stripe"))),
+              data:{
+                id:4
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("validateAccount"))),
+              data:{
+                email:"email3@gmail.com"
+              }
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("membersPendingValidation"))),
+              data:{
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("deleteAccount"))),
+              data:{
+                email:"email4x",
+                id:5
+              }
+              };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("searchRestaurant"))),
+              data:{
+                search_type:"none",
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("isPostcodeExist"))),
+              data:{
+                postcode:123
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("addCategory"))),
+              data:{
+                categoryName:"category7",
+                id_member:10
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("getCategories"))),
+              data:{
+              }
+            };*/
+             /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("deleteDish"))),
+              data:{
+                id_dish:3,
+                id_restaurant:6
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("vote"))),
+              data:{
+                id_member:10,
+                stars:5,
+                id_dish:2
+              }
+            };*/
+  /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("registration"))),
+              data:{
+                account_type:"customer",
+                first_name:"firstName2",
+                postcode:"1234",
+                last_name:"lastName2",
+                restaurant_name:"restaurant_name",
+                address_line1:"address_line1",
+                address_line2:"address_line2",
+                city:"city",
+                image:"city",
+                email:"email12",
+                password:"password",
+                phone_number:"237698075801",
+                restaurant_phone_number:"237698075801"
+              }
+            };*/
+    /*const photo = document.getElementById("change");
+    photo.addEventListener("change",()=>{
+      formDataToSend.data.photo = UploadFiles();
+    },false);
+
+    function UploadFiles(files){
+      let elt = ""; 
+      let reader = new FileReader();
+        reader.addEventListener("load", function(){
+            cover.src = this.result;
+        },false);
+        reader.readAsDataURL(files);      
+    }*/
+/*var formDataToSend = {
+              requestName:btoa(btoa(btoa("changeRestaurantAvailability"))),
+              data:{
+                email:"email3",
+                restaurant_is_available:"itsWorks",
+              }
+            };*/
+            /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("newDish"))),
+              data:{
+                dish_name:"cookie",
+                dish_price:"500f",
+                dish_description:"with chocolate",
+                dish_category_id:3,
+                dish_sub_category_id:2,
+                dish_sub_sub_category_id:2,
+                dish_sub_sub_sub_category_id:2,
+                id_restaurant: 4,
+                image:"base64"
+              }
+              };*/
+              /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("validateAccount"))),
+              data:{
+                email:"email5",
+                elementName:"phone_number",
+                elementValue:"674811274"
+              }
+              };*/
+              /*var formDataToSend = {
+              requestName:btoa(btoa(btoa("sendMail"))),
+              data:{
+                from:"christiankamdem2@gmail.com",
+                to:"christiankamdem2@gmail.com",
+                subject:"subject - 674811274",
+                message:"674811274"
+              }
+              };*/
+          /*let formDataToSend = {
+            requestName:'registration',
+            data:{
+              language:'xyz',
+              idAccountType:1,
+              matricule:'xyz12',
+              tel:'',
+              name:'xyz',
+              surname:'xyz',
+              email:'xyz12',
+              country:'xyz',
+              region:'xyz',
+              commune:'xyz',
+              matrimonialStatut:'xyz',
+              genre:'M',
+              dob:0,
+              date:'',
+              long:'',
+              lat:''
+            }                     
+            };*/
+            /*
+            let formDataToSend = {
+            requestName:'sendMail',
+            data:{
+              message:'Fichier client Danaid',
+              to:'christiankamdem2@gmail.com',
+              from:'Danaid',
+              subject:'Fichier client Danaid',
+              language:'xyz',
+              idAccountType:1,
+              matricule:'ck204784655',
+              tel:'2379965623',
+              name:'abc7',
+              surname:'xyz',
+              email:'k234569@gmail2.com',
+              country:'Cameroun',
+              region:'Centre',
+              commune:'Melen',
+              matrimonialStatut:'Célibataire',
+              genre:'M',
+              dob:'14-08-19',
+              date:'',
+              city:'Yaoundé',
+              long:1.541515,
+              lat:1.45525454,
+              profession:'dev',
+              recommandations:'255/4845/8856/',
+              photo2:'photo',
+              file2:'file',
+              file:'data:image/jpeg;base64,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kMtXTK00iaJjU8ZbqFvIqA1amhrYusy4Fy0CjWzeH3lodbbfRjtDO6OVmMXEaDXPVy5+03jQdceDLz+IBbUoLXQ/MSoStTgtBFYdY4yQhu/CxtsizQ8mJXIJr3QUzAaLSmI+E68Fn7In1amlopGFMMaw03mlvrEGxR6SqI4WyqpW9534azQDgDZLJQNZ6SB1zrrWOPtQlNFdF8+kGpaeuzQnmEUgiJqP1ZYUaLcjT+pRZq/aI79Um/8A2CtGszfMyiyQXjzBzE6bFljrVXmMKJKK1aVt9rd85HrbpPF1hFH4ku05spa3+pK0nVXTNP7ILHKitqfoTf8A7L4rWaWNxEgaF+kT3jtgEq/mVFYGR0totXC2/c8xCrzdRdPyEo+GXFzGr6OIPwhSNnj0eu/00/8AB5lZQIvR6MzG2zcR5qJWgLGuciVxByd0s2WpDOv4j/8AAR0ncZe95AXyjPxgeoZhqBM7ZjklazmwoBmmNUQxp+m2ilGxTjRkmCgym2rZXk1MHrDkmwH1xC4oI6hesbbf3MzBQt83j/wEL34NKCA60sf00kZmt9xCzrG1vN6dL3qVe4cy1K5FAUarFCqbilQTVjGiM0ZJqsi9JUihQjdRwFDxrREyCtZQjXXT/wDgfd07und07und07und07und07und07und07und07und07und07und07und07und07und07und07und07und07und07und07un/9k='
+            }                     
+            };*/
+          //table->[id_dish,quantity,postcode,id_client,id_restaurant,order_time_start,shedule]
+          /*var formDataToSend = {
+          requestName:btoa(btoa(btoa("addOrder"))),
+          data:{
+            '1':[4,2,"OX1 47D",2,4,15124545212,"ASAP"],
+            '2':[3,3,"OX1 47D",2,4,15124545212,"ASAP"]
+          }
+          };*/
+          /*var formDataToSend = {
+          requestName:btoa(btoa(btoa("getOrder"))),
+          data:{
+            id_restaurant:4
+          }
+          };*/
+          var formDataToSend = {
+          requestName:"load_discussion_list",
+          data:{
+            user_from:'Omoi',
+            user_to:'Melen',
+            statut:'not seen',
+            message:'Hello!',
+            id_conversations:1,
+            sent_at:155574854545441
+          }
+          };
+          /*window.addEventListener("onwheel" in document ? "wheel" : "mousewheel", function(e) {
+  e.wheel = e.deltaY ? -e.deltaY : e.wheelDelta/40;alert("dfq");
+  // custom code
+});*/
+//api/entryPoint.php;
+              const urlToSend = "entryPoint.php";
+              let xhrSendData = new XMLHttpRequest();
+                  xhrSendData.addEventListener("loadstart", () =>
+                   {console.log('loadstart');
+                   });
+                  xhrSendData.addEventListener("load", () =>
+                   {
+                          console.log(xhrSendData.response);
+                   });
+                  xhrSendData.addEventListener("error",()=>{
+                    //console.log(e.error);
+                  });
+             xhrSendData.responseType = "text";
+             xhrSendData.open('POST',urlToSend, true);
+            xhrSendData.send(JSON.stringify(formDataToSend));
+  </script>
+</body>
+</html>
