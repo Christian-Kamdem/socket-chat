@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
         error:true
       });
     }
-    console.log(rooms);
+    console.log('Room: '+rooms);
   });
 });
 http.listen(3000, () => {
