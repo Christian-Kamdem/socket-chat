@@ -25,7 +25,8 @@
     let dataFlow = {
       userId:Math.floor(Math.random() * 10),
       message:'',
-      sendTo:''
+      sendTo:'',
+      type:''
     };
     const socket = io();
     const sendMessage = document.getElementById('sendMessage');
@@ -39,12 +40,30 @@
       socket.emit('chat message', dataFlow);
       sendMessage.value = '';
     });
+    message.addEventListener('input',(e)=>{
+      e.preventDefault(); // prevents page reloading
+      dataFlow.message = 'typing';
+      dataFlow.type = 'private';
+      dataFlow.sendTo = document.getElementById('sendTo').value;
+      socket.emit('chat message', dataFlow);
+    });
+    message.addEventListener('focusout',(e)=>{
+      e.preventDefault(); // prevents page reloading
+      dataFlow.message = 'stop_typing';
+      dataFlow.type = 'private';
+      dataFlow.sendTo = document.getElementById('sendTo').value;
+      socket.emit('chat message', dataFlow);
+    });
     socket.on('chat message', function(msg){
       if(msg.error !== true){
-        let domUpdate = `<p>From :${msg.from}</p><p>Message :${msg.message}</p>`;
-        requestAnimationFrame(()=>{
-          chat.insertAdjacentHTML('beforeend',domUpdate);
-        });
+        if(msg.type === 'private'){
+          console.log(msg.message);
+        }else{
+          let domUpdate = `<p>From :${msg.from}</p><p>Message :${msg.message}</p>`;
+          requestAnimationFrame(()=>{
+            chat.insertAdjacentHTML('beforeend',domUpdate);
+          });
+        }
       }else{
         console.log(msg);
       }
