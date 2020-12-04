@@ -4,7 +4,7 @@ function uploadAudio($data){
 		list($type, $data) = explode(';base64,', $data, 2);
 		$data = str_replace(' ', '+', $data);
 		$data = base64_decode($data);
-		$salt = 'rgorl'.mt_rand().'g$*kelladata'.time();
+		$salt = 'rgorl'.mt_rand().'g$*dile'.time();
 		$salt = str_shuffle($salt);
 		$audioName = openssl_digest($salt,'sha512');
 		file_put_contents($repertoireUpload.$audioName.'.mp3',$data);

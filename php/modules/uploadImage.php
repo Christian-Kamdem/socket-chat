@@ -1,19 +1,19 @@
 <?php
-function uploadImage($imagesList){
+/*function uploadImage($imagesList){
 		$tab_nom = [];
 			foreach($imagesList as $val){
 					array_push($tab_nom,imageFromString($val));
 
 				}
 	return $tab_nom;
-}
-function imageFromString($data){
+}*/
+function uploadImage($data){
 	     $repertoireUpload = '../medias/images/';
 	     list($type, $data) = explode(';base64,', $data, 2);
 	     $data = str_replace(' ', '+', $data);
 	     $source = imagecreatefromstring(base64_decode($data));
 	     $rotate = imagerotate($source,0,0);
-	     $salt = 'rgorl'.mt_rand().'g$*kelladata'.time();
+	     $salt = 'rgorl'.mt_rand().'g$*dile'.time();
 	     $salt = str_shuffle($salt);
 	     $imageName = openssl_digest($salt,'sha512').'.jpeg';
 	     file_put_contents($repertoireUpload.$imageName,$data);
