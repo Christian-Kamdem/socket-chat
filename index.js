@@ -14,7 +14,7 @@ io.on('connection', (socket) => {
       }
     }
   });
-  socket.on('chat message', (msg) => {
+  socket.on('chat message', (msg) => {console.log(msg);
     if(!rooms[msg.userId]){
       rooms[msg.userId] = socket.id;
     }
@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
         error:true
       });
     }
-    console.log('Room: '+rooms);
+    console.log(rooms);
   });
 });
 http.listen(3000, () => {
