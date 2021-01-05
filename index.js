@@ -27,12 +27,12 @@ io.on('connection', (socket) => {
       });
     }else{
       io.to(rooms[msg.userId]).emit('chat message',{
-        message:msg.sendTo+' is disconnected',
+        message:'disconnected',
+        type:'private',
         from:msg.userId,
         error:true
       });
     }
-    console.log(rooms);
   });
 });
 http.listen(3000, () => {

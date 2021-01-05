@@ -47,23 +47,38 @@
     });
     sendFile.addEventListener('change',(e)=>{
       e.preventDefault(); // prevents page reloading
-      dataFlow.message = 'File sent!';
-      dataFlow.type = 'private';
-      socket.emit('chat message', dataFlow);
+      //
+      const formDataToSend = {
+            requestName:"uploadAudio",
+            data:{
+              amount:2
+            }
+          };
       let xhrSendData = new XMLHttpRequest();
                   xhrSendData.addEventListener("loadstart", () =>
                    {
                    });
                   xhrSendData.addEventListener("load", () =>
                    {
-                          resolve(JSON.parse(xhrSendData.response));
+                          console.log(xhrSendData.response);
                    });
                   xhrSendData.addEventListener("error",()=>{
                     //console.log(e.error);
                   });
-             xhrSendData.responseType = "text";
-             xhrSendData.open(method,url, true);
-            xhrSendData.send(JSON.stringify(dataFlow));
+            xhrSendData.responseType = "text";
+            xhrSendData.open('POST','http://127.0.0.1/chat/dile/entryPoint.php', true);
+            
+            let reader = new FileReader();
+                          reader.onload = function(){
+                            console.log();
+                            xhrSendData.send(JSON.stringify({
+                              requestName:'uploadImage',
+                              data:{
+                                file:reader.result
+                              }
+                            }));
+                          };
+            reader.readAsDataURL(sendFile.files[0]);
     });
     socket.on('chat message', function(msg){
       if(msg.error !== true){

@@ -7,7 +7,8 @@
 				}
 	return $tab_nom;
 }*/
-function uploadImage($data){
+function uploadImage($dataImage){
+		 $data = $dataImage->file;
 	     $repertoireUpload = '../medias/images/';
 	     list($type, $data) = explode(';base64,', $data, 2);
 	     $data = str_replace(' ', '+', $data);

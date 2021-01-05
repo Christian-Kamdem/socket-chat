@@ -1,5 +1,6 @@
 <?php
 function uploadAudio($data){
+	    $data = $data->file;
 		$repertoireUpload = '../medias/audios/';
 		list($type, $data) = explode(';base64,', $data, 2);
 		$data = str_replace(' ', '+', $data);
