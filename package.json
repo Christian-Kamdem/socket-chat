@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Christian-Kamdem/socket-chat#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.15.2",
     "socket.io": "^2.3.0"
   }
