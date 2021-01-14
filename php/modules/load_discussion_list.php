@@ -1,12 +1,11 @@
 <?php
 function load_discussion_list($data){
 	include 'helpers/bd.php';
-	$bd = bd();	
+	$bd = bd();
 	$box = array();
 		$data->user_from = strip_tags($data->user_from);
-		$data->user_to = strip_tags($data->user_to);
 		 try{
-			$request = $bd->prepare('SELECT DISTINCT user_to
+			$request = $bd->prepare('SELECT DISTINCT user_from,user_to
 									  FROM conversations 
 									  WHERE user_from = ? OR user_to = ?');
 	        $request->execute([$data->user_from,$data->user_from]);
@@ -15,10 +14,14 @@ function load_discussion_list($data){
 			}	
 
 			if($request->rowCount() < 1){
-				return json_encode(array('message' => 'Not found','error'=>true));
+				return json_encode(array('message' => 'Not found','error'=>false));
 			}else{
 				while($infos = $request->fetch()){
-					array_push($box,$infos['user_to']);
+					if($data->user_from == $infos['user_to']){
+						array_push($box,$infos['user_from']);
+					}elseif($data->user_from == $infos['user_from']){
+						array_push($box,$infos['user_to']);
+					}
 				}
 				return json_encode(array('message' => $box,'error'=>false));
 			}		

@@ -80,14 +80,14 @@
                           };
             reader.readAsDataURL(sendFile.files[0]);
     });
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function(msg){console.log(msg);
       if(msg.error !== true){
         let domUpdate = `<p>From :${msg.from}</p><p>Message :${msg.message}</p>`;
         requestAnimationFrame(()=>{
           chat.insertAdjacentHTML('beforeend',domUpdate);
         });
       }else{
-        console.log(msg);
+        //console.log(msg);
       }
     });
   </script>
