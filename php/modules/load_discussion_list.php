@@ -24,6 +24,7 @@ function load_discussion_list($data){
 					}
 				}
 				$box = array_unique($box);
+				$box = array_values($box);
 				return json_encode(array('message' => $box,'error'=>false));
 			}		
 	}

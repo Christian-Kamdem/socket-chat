@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
 		      data: JSON.stringify({
 		            requestName:"load_discussion_list",
 		            data:{
-		              user_from:'Omoi'
+		              user_from:20
 		            }
 		          }),
 		      headers: {
