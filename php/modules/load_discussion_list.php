@@ -5,7 +5,7 @@ function load_discussion_list($data){
 	$box = array();
 		$data->user_from = strip_tags($data->user_from);
 		 try{
-			$request = $bd->prepare('SELECT DISTINCT user_from,user_to
+			$request = $bd->prepare('SELECT user_from,user_to
 									  FROM conversations 
 									  WHERE user_from = ? OR user_to = ?');
 	        $request->execute([$data->user_from,$data->user_from]);
@@ -23,6 +23,7 @@ function load_discussion_list($data){
 						array_push($box,$infos['user_to']);
 					}
 				}
+				$box = array_unique($box);
 				return json_encode(array('message' => $box,'error'=>false));
 			}		
 	}
